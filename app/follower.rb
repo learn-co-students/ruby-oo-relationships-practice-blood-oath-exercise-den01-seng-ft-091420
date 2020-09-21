@@ -14,11 +14,15 @@ class Follower
         @@all
     end
 
-    def cults
-        follower_oaths = Bloodoath.all.select do |oath|
+    #helper method
+    def blood_oaths
+        Bloodoath.all.select do |oath|
             oath.follower == self
         end
-        follower_oaths.map {|oath| oath.cult}
+    end
+
+    def cults
+        blood_oaths.map {|oath| oath.cult}
     end
 
     def join_cult cult, date
