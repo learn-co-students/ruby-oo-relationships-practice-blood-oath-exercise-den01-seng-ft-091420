@@ -1,2 +1,0 @@
-class Follower
-end
